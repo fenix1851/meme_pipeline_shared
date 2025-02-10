@@ -14,6 +14,7 @@ type TextBlock struct {
 type MemeGenerationRequest struct {
 	Type       string      `json:"type"`        // Тип сообщения
 	TemplateID int         `json:"template_id"` // ID шаблона
+	TopicID    int         `json:"topic_id"`    // ID темы(поста на реддите)
 	Text       []TextBlock `json:"text_block"`  // Текстовый блок
 }
 
