@@ -6,7 +6,8 @@ type TextBlock struct {
 	Y           int    `json:"y"`           // Координата Y верхнего левого угла
 	Width       int    `json:"width"`       // Ширина текстового блока
 	Height      int    `json:"height"`      // Высота текстового блока
-	Description string `json:"description"` // Описание текстового блока
+	Description string `json:"description"` // Описание текстового блока по сути просто пример заполнения для понимания контекста
+	Text        string `json:"text"`        // Текст самого мема
 }
 
 // MemeGenerationRequest - структура запроса на генерацию мема
