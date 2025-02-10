@@ -11,6 +11,10 @@ type TextBlock struct {
 
 // MemeGenerationRequest - структура запроса на генерацию мема
 type MemeGenerationRequest struct {
-	TemplateID int       `json:"template_id"`
-	Text       TextBlock `json:"text_block"`
+	Type       string    `json:"type"`        // Тип сообщения
+	TemplateID int       `json:"template_id"` // ID шаблона
+	Text       TextBlock `json:"text_block"`  // Текстовый блок
 }
+
+// Константа для типа сообщения
+const MemeGenerationRequestType = "meme_generation"
