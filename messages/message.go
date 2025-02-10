@@ -1,4 +1,4 @@
-package message
+package messages
 
 // TextBlock представляет структуру для хранения данных текстового блока.
 type TextBlock struct {
