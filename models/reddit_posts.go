@@ -7,7 +7,7 @@ type RedditPost struct {
 	PostLink  string `gorm:"column:post_link;type:text;not null"`
 	PostTitle string `gorm:"column:post_title;type:text;not null"`
 	PostText  string `gorm:"column:post_text;type:text"`
-	Karma     int    `gorm:"column:karma"`
+	Upvotes   int    `gorm:"column:upvotes"`
 	// Связь с reddit_treads
 	SubRedditId uint       `gorm:"column:post_subreddit"`
 	SubReddits  SubReddits `gorm:"constraint:OnUpdate:CASCADE,OnDelete:SET NULL;"`
