@@ -9,5 +9,5 @@ type SubReddits struct {
 	CreatedAt time.Time `gorm:"column:created_at"`
 	UpdatedAt time.Time `gorm:"column:updated_at"`
 	// Один тред может быть привязан к нескольким темам мема
-	RedditPosts []RedditPost `gorm:"foreignKey:RedditTreadID"`
+	RedditPosts []RedditPost `gorm:"foreignKey:SubRedditId"` // updated foreign key reference
 }
