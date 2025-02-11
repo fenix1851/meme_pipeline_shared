@@ -10,9 +10,9 @@ type GeneratedMeme struct {
 	ID        uint      `gorm:"primaryKey"`
 	CreatedAt time.Time `gorm:"column:created_at"`
 	UpdatedAt time.Time `gorm:"column:updated_at"`
-
+	MemePic   string    `gorm:"column:meme_pic;type:text;not null"`
 	// Ссылка на шаблон мема (meme_templates)
-	MemeTemplateID uint         `gorm:"column:meme_pic"` // foreign key: meme_templates.id
+	MemeTemplateID uint         `gorm:"column:meme_template"` // foreign key: meme_templates.id
 	MemeTemplate   MemeTemplate `gorm:"constraint:OnUpdate:CASCADE,OnDelete:SET NULL;"`
 
 	// Ссылка на тему мема (meme_topics)
