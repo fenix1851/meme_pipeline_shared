@@ -9,5 +9,5 @@ type RedditTread struct {
 	CreatedAt time.Time `gorm:"column:created_at"`
 	UpdatedAt time.Time `gorm:"column:updated_at"`
 	// Один тред может быть привязан к нескольким темам мема
-	MemeTopics []MemeTopic `gorm:"foreignKey:RedditTreadID"`
+	RedditPosts []RedditPost `gorm:"foreignKey:RedditTreadID"`
 }
