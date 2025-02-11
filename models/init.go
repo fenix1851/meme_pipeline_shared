@@ -9,12 +9,13 @@ import (
 // Migrate выполняет миграции для всех моделей
 func Migrate(db *gorm.DB) {
 	err := db.AutoMigrate(
-		&RedditPost{},
 		&MemeTemplate{},
+		&RedditPost{},
+		&RedditTread{},
+		&MemeTopic{},
+		&GeneratedMeme{},
+		&OurRedditPost{},
 		&User{},
-		&Meme{},
-		&MemeKarma{},
-		&MemeComment{},
 	)
 	if err != nil {
 		log.Fatalf("Ошибка миграции: %v", err)
