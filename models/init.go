@@ -11,7 +11,7 @@ func Migrate(db *gorm.DB) {
 	err := db.AutoMigrate(
 		&MemeTemplate{},
 		&RedditPost{},
-		&RedditTread{},
+		&SubReddits{},
 		&MemeTopic{},
 		&GeneratedMeme{},
 		&OurRedditPost{},
