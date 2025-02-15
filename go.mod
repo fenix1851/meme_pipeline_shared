@@ -3,6 +3,7 @@ module github.com/fenix1851/meme_pipeline_shared
 go 1.23.0
 
 require (
+	gopkg.in/yaml.v3 v3.0.1
 	gorm.io/datatypes v1.2.5
 	gorm.io/gorm v1.25.12
 )
