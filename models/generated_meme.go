@@ -20,6 +20,7 @@ type GeneratedMeme struct {
 	MemeTopic   MemeTopic `gorm:"constraint:OnUpdate:CASCADE,OnDelete:SET NULL;"`
 
 	TextContent datatypes.JSON `gorm:"column:text_content;type:jsonb"`
+	Posted      bool           `gorm:"column:posted;default:false"`
 
 	// Один сгенерированный мем может быть привязан к нескольким нашим Reddit-постам
 	OurRedditPosts []OurRedditPost `gorm:"foreignKey:MemeID"`
