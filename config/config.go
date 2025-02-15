@@ -103,9 +103,10 @@ type JobsConfig struct {
 	// Например, задача генерации мемов (раньше называлась meme_crossing_sheduler)
 	MemeCrosser *JobSettings `yaml:"meme_crossing_scheduler,omitempty"`
 	// Дополнительные задачи (например, для сбора/разметки мемов)
-	MemeFetching *JobSettings         `yaml:"meme_fetching,omitempty"`
-	MemeLabeling *JobSettings         `yaml:"meme_labeling,omitempty"`
-	ParsePosts   *JobParsePostsConfig `yaml:"job_parse_posts,omitempty"`
+	MemeFetching  *JobSettings         `yaml:"meme_fetching,omitempty"`
+	MemeLabeling  *JobSettings         `yaml:"meme_labeling,omitempty"`
+	ParsePosts    *JobParsePostsConfig `yaml:"job_parse_posts,omitempty"`
+	TopicAnalysis *JobSettings         `yaml:"topic_analysis,omitempty"`
 }
 
 // interpolateEnv выполняет замену шаблонов ${VAR_NAME} на значения переменных окружения.
