@@ -3,6 +3,7 @@ package reddit
 import (
 	"net/http"
 	"strings"
+	"time"
 
 	"github.com/fenix1851/meme_pipeline_shared/config"
 	"github.com/fenix1851/meme_pipeline_shared/models"
@@ -85,6 +86,33 @@ type SubmitPostResponse struct {
 		} `json:"data"`
 		Errors []interface{} `json:"errors"`
 	} `json:"json"`
+}
+
+func ParseRedditPosts(posts RedditPostResponses) []models.SubReddits {
+	subredditMap := make(map[string]models.SubReddits)
+
+	for _, post := range posts {
+		threadLink := ExtractThreadLink(post.PostLink)
+		threadName := ExtractThreadName(threadLink)
+
+		// Если сабреддит уже есть в мапе, пропускаем создание нового
+		if _, exists := subredditMap[threadLink]; !exists {
+			subredditMap[threadLink] = models.SubReddits{
+				TreadName: threadName,
+				TreadLink: threadLink,
+				CreatedAt: time.Now(),
+				UpdatedAt: time.Now(),
+			}
+		}
+	}
+
+	// Преобразуем мапу в слайс
+	subreddits := make([]models.SubReddits, 0, len(subredditMap))
+	for _, subreddit := range subredditMap {
+		subreddits = append(subreddits, subreddit)
+	}
+
+	return subreddits
 }
 
 // extractThreadLink извлекает ссылку на тред из ссылки поста
