@@ -19,6 +19,7 @@ type Config struct {
 	LabelStudio  *LabelStudioConfig  `yaml:"label_studio,omitempty"`
 	ClientReddit *ClientRedditConfig `yaml:"client_reddit,omitempty"`
 	Jobs         JobsConfig          `yaml:"jobs,omitempty"`
+	Instagram    *InstagramConfig    `yaml:"instagram,omitempty"`
 }
 
 // AppConfig — настройки приложения.
@@ -26,6 +27,13 @@ type AppConfig struct {
 	Env         string `yaml:"env"`
 	LogLevel    string `yaml:"log_level"`
 	LogFilePath string `yaml:"log_file_path"`
+}
+
+type InstagramConfig struct {
+	AccessToken  string `yaml:"access_token"`
+	ClientID     string `yaml:"client_id"`
+	ClientSecret string `yaml:"client_secret"`
+	UserID       string `yaml:"user_id"`
 }
 
 // DatabaseConfig — настройки подключения к БД.
