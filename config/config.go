@@ -20,6 +20,7 @@ type Config struct {
 	ClientReddit *ClientRedditConfig `yaml:"client_reddit,omitempty"`
 	Jobs         JobsConfig          `yaml:"jobs,omitempty"`
 	Instagram    *InstagramConfig    `yaml:"instagram,omitempty"`
+	Imgur        *ImgurConfig        `yaml:"imgur,omitempty"`
 }
 
 // AppConfig — настройки приложения.
@@ -34,6 +35,10 @@ type InstagramConfig struct {
 	ClientID     string `yaml:"client_id"`
 	ClientSecret string `yaml:"client_secret"`
 	UserID       string `yaml:"user_id"`
+}
+
+type ImgurConfig struct {
+	ClientID string `yaml:"client_id"`
 }
 
 // DatabaseConfig — настройки подключения к БД.
