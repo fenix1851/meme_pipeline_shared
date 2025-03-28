@@ -19,6 +19,8 @@ type Config struct {
 	LabelStudio  *LabelStudioConfig  `yaml:"label_studio,omitempty"`
 	ClientReddit *ClientRedditConfig `yaml:"client_reddit,omitempty"`
 	Jobs         JobsConfig          `yaml:"jobs,omitempty"`
+	Instagram    *InstagramConfig    `yaml:"instagram,omitempty"`
+	Imgur        *ImgurConfig        `yaml:"imgur,omitempty"`
 }
 
 // AppConfig — настройки приложения.
@@ -26,6 +28,17 @@ type AppConfig struct {
 	Env         string `yaml:"env"`
 	LogLevel    string `yaml:"log_level"`
 	LogFilePath string `yaml:"log_file_path"`
+}
+
+type InstagramConfig struct {
+	AccessToken  string `yaml:"access_token"`
+	ClientID     string `yaml:"client_id"`
+	ClientSecret string `yaml:"client_secret"`
+	UserID       string `yaml:"user_id"`
+}
+
+type ImgurConfig struct {
+	ClientID string `yaml:"client_id"`
 }
 
 // DatabaseConfig — настройки подключения к БД.
@@ -100,13 +113,12 @@ type JobParsePostsConfig struct {
 
 // JobsConfig — объединение конфигураций задач.
 type JobsConfig struct {
-	// Например, задача генерации мемов (раньше называлась meme_crossing_sheduler)
-	MemeCrosser *JobSettings `yaml:"meme_crossing_scheduler,omitempty"`
-	// Дополнительные задачи (например, для сбора/разметки мемов)
-	MemeFetching  *JobSettings         `yaml:"meme_fetching,omitempty"`
-	MemeLabeling  *JobSettings         `yaml:"meme_labeling,omitempty"`
-	ParsePosts    *JobParsePostsConfig `yaml:"job_parse_posts,omitempty"`
-	TopicAnalysis *JobSettings         `yaml:"topic_analysis,omitempty"`
+	MemeCrosser     *JobSettings         `yaml:"meme_crossing_scheduler,omitempty"`
+	MemeFetching    *JobSettings         `yaml:"meme_fetching,omitempty"`
+	MemeLabeling    *JobSettings         `yaml:"meme_labeling,omitempty"`
+	ParsePosts      *JobParsePostsConfig `yaml:"job_parse_posts,omitempty"`
+	TopicAnalysis   *JobSettings         `yaml:"topic_analysis,omitempty"`
+	InstPhotoPoster *JobSettings         `yaml:"inst_photo_poster,omitempty"`
 }
 
 // interpolateEnv выполняет замену шаблонов ${VAR_NAME} на значения переменных окружения.

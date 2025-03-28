@@ -18,6 +18,7 @@ func Migrate(db *gorm.DB) {
 		&GeneratedMeme{},
 		&OurRedditPost{},
 		&User{},
+		&OurInstagramPost{},
 	)
 	if err != nil {
 		log.Fatalf("Ошибка миграции: %v", err)
