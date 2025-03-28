@@ -9,6 +9,8 @@ import (
 // Migrate выполняет миграции для всех моделей
 func Migrate(db *gorm.DB) {
 	err := db.AutoMigrate(
+		&YoutubeChannel{},
+		&YoutubeVideo{},
 		&MemeTemplate{},
 		&RedditPost{},
 		&SubReddits{},
