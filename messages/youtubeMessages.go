@@ -1,6 +1,6 @@
 package messages
 
-type RabitUrlMessage struct {
+type RabbitUrlMessage struct {
 	Type string `json:"type"`
 	Url  string `json:"url"`
 }
@@ -8,8 +8,9 @@ type RabitUrlMessage struct {
 const YoutubeUrlType = "youtube_url"
 
 type RabbitChannelMessage struct {
-	Type string `json:"type"`
-	Url  string `json:"url"`
+	Type           string `json:"type"`
+	Url            string `json:"url"`
+	NumberOfVideos int    `json:"number_of_videos"`
 }
 
 const YoutubeChannelType = "youtube_channel"
